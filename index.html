@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio d'Ahmedou Ahmedou, étudiant en L3 informatique">
+    <title>Ahmedou Ahmedou — Portfolio</title>
+
+    <!-- Police Geist Mono depuis Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- En-tête : nom + menu de navigation -->
+    <header>
+        <a href="#apropos" class="logo">AA</a>
+        <nav>
+            <ul>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Chaque section = une "ligne" : une étiquette à gauche, le contenu à droite -->
+        <section id="apropos" class="ligne">
+            <h2 class="etiquette">À propos</h2>
+            <div class="contenu">
+                <p class="intro">Je suis Ahmedou, étudiant en L3 Informatique.</p>
+                <p>
+                    Passionné par les nouvelles technologies, j'aime apprendre
+                    et créer de nouveaux projets. Ce portfolio me sert à
+                    progresser en développement web.
+                </p>
+            </div>
+        </section>
+
+        <section id="competences" class="ligne">
+            <h2 class="etiquette">Compétences</h2>
+            <div class="contenu">
+                <ul class="liste">
+                    <li>
+                        <span class="titre">Langages</span>
+                        <span class="detail">Python, C, Java, OCaml, SQL, HTML, CSS, JavaScript</span>
+                    </li>
+                    <li>
+                        <span class="titre">Réseaux & Sécurité</span>
+                        <span class="detail">TCP/IP, protocoles applicatifs, tests d'intrusion, firewall</span>
+                    </li>
+                    <li>
+                        <span class="titre">Systèmes</span>
+                        <span class="detail">Linux, VirtualBox</span>
+                    </li>
+                    <li>
+                        <span class="titre">Outils</span>
+                        <span class="detail">Git, GitLab, Node.js, Burp Suite, Nmap, Metasploit</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projets" class="ligne">
+            <h2 class="etiquette">Projets</h2>
+            <div class="contenu">
+                <ul class="liste">
+                    <li>
+                        <span class="titre">Protocole réseau client-serveur</span>
+                        <span class="detail">Python</span>
+                        <span class="date">2025</span>
+                        <p class="description">
+                            Protocole TCP personnalisé avec architecture client-serveur,
+                            authentification administrateur et gestion multi-clients.
+                            Projet universitaire en équipe.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="titre">Jeu de puzzle « Tents »</span>
+                        <span class="detail">C · SDL2</span>
+                        <span class="date">2024 – 2025</span>
+                        <p class="description">
+                            Jeu de puzzle modulaire avec solveur, historique undo/redo
+                            et interface graphique SDL2. Outils : CMake, Valgrind, GDB.
+                            Projet universitaire en équipe.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="certifications" class="ligne">
+            <h2 class="etiquette">Certifications</h2>
+            <div class="contenu">
+                <ul class="liste">
+                    <li>
+                        <span class="titre">eJPTv2</span>
+                        <span class="detail">INE Security</span>
+                        <span class="date">2026</span>
+                        <p class="description">
+                            Junior Penetration Tester : reconnaissance, énumération,
+                            exploitation de vulnérabilités, pivoting, post-exploitation.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="titre">ICCA</span>
+                        <span class="detail">INE</span>
+                        <span class="date">2026</span>
+                        <p class="description">
+                            Certified Cloud Associate : fondamentaux multi-cloud
+                            (AWS, Azure, GCP), sécurité et conformité.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="titre">Networking Basics</span>
+                        <span class="detail">Cisco Networking Academy</span>
+                        <span class="date">2025</span>
+                        <p class="description">
+                            Modèle OSI/TCP-IP, adressage IP, commutation et routage.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="ligne">
+            <h2 class="etiquette">Contact</h2>
+            <div class="contenu">
+                <p>Une question, un projet ? Écrivez-moi.</p>
+                <a href="mailto:abc@gmail.com" class="bouton">M'envoyer un mail</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Ahmedou Ahmedou</p>
+        <ul>
+            <li><a href="https://github.com/ahmedou999" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/ahmedou-ahmedou-7691982a3/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="mailto:ahmedou.amh@gmail.com">Email</a></li>
+        </ul>
+    </footer>
+
+</body>
+</html>

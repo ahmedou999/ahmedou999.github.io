@@ -1,0 +1,242 @@
+/* =========================================================
+   1. VARIABLES
+   On range les couleurs et tailles ici une seule fois.
+   Ensuite on les réutilise avec var(--nom).
+   ========================================================= */
+:root {
+    --fond: #0a0a0a;          /* presque noir */
+    --texte: #e8e8e8;         /* blanc cassé, moins agressif que #fff */
+    --texte-doux: #8a8a8a;    /* gris pour les infos secondaires */
+    --bordure: #262626;       /* lignes de séparation discrètes */
+    --largeur-max: 760px;     /* largeur maximale du contenu */
+}
+
+
+/* =========================================================
+   2. RESET
+   Les navigateurs ajoutent des marges par défaut un peu
+   partout. On les enlève pour partir d'une base propre.
+   ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   /* la largeur inclut padding + bordure */
+}
+
+
+/* =========================================================
+   3. BASE
+   ========================================================= */
+html {
+    scroll-behavior: smooth;  /* défilement doux quand on clique sur le menu */
+}
+
+body {
+    background: var(--fond);
+    color: var(--texte);
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 15px;
+    line-height: 1.7;         /* espace entre les lignes de texte */
+
+    max-width: var(--largeur-max);
+    margin: 0 auto;           /* "auto" à gauche et à droite = centré */
+    padding: 0 24px;          /* espace sur les côtés (utile sur mobile) */
+}
+
+a {
+    color: var(--texte);
+    text-decoration: none;    /* enlève le soulignement par défaut */
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;         /* enlève les puces */
+}
+
+
+/* =========================================================
+   4. EN-TÊTE
+   Flexbox place les enfants (logo + nav) sur une ligne.
+   ========================================================= */
+header {
+    display: flex;
+    justify-content: space-between;  /* logo à gauche, nav à droite */
+    align-items: center;             /* centrés verticalement */
+    padding: 24px 0;
+    border-bottom: 1px solid var(--bordure);
+
+    /* sticky : l'en-tête défile normalement, puis reste collé en haut */
+    position: sticky;
+    top: 0;
+    background: var(--fond);  /* sinon le texte passerait "à travers" */
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+nav ul {
+    display: flex;            /* les liens du menu côte à côte */
+    gap: 20px;                /* espace entre chaque lien */
+}
+
+nav a {
+    color: var(--texte-doux);
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    color: var(--texte);
+}
+
+
+/* =========================================================
+   5. LES LIGNES (sections)
+   Grid découpe la section en 2 colonnes :
+   - 140px pour l'étiquette
+   - 1fr  = "tout le reste de la place"
+   ========================================================= */
+.ligne {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--bordure);
+    scroll-margin-top: 80px;  /* au clic dans le menu, ne pas se cacher sous l'en-tête */
+}
+
+.etiquette {
+    color: var(--texte-doux);
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.contenu p + p {
+    margin-top: 12px;         /* espace seulement entre 2 paragraphes qui se suivent */
+}
+
+.intro {
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   6. LISTES (compétences, projets)
+   Chaque <li> est une petite ligne flex :
+   titre — détail — date (poussée à droite)
+   ========================================================= */
+.liste li {
+    display: flex;
+    align-items: baseline;    /* aligne le bas du texte, pas des boîtes */
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--bordure);
+}
+
+.liste li:first-child {
+    padding-top: 0;           /* aligne la 1re ligne avec l'étiquette */
+}
+
+.liste li:last-child {
+    border-bottom: none;      /* pas de trait sous le dernier élément */
+}
+
+.titre {
+    font-weight: 600;
+    white-space: nowrap;      /* le titre ne passe jamais à la ligne */
+}
+
+.detail {
+    color: var(--texte-doux);
+}
+
+.date {
+    margin-left: auto;        /* astuce flex : pousse la date tout à droite */
+    color: var(--texte-doux);
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+/* Description d'un projet : on veut qu'elle passe SOUS le titre.
+   flex-wrap autorise le retour à la ligne, et flex-basis: 100%
+   force la description à prendre toute une ligne à elle seule. */
+.liste li:has(.description) {
+    flex-wrap: wrap;
+}
+
+.description {
+    flex-basis: 100%;
+    color: var(--texte-doux);
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   7. BOUTON
+   ========================================================= */
+.bouton {
+    display: inline-block;    /* un lien est "inline" : on le passe en bloc pour le padding */
+    margin-top: 16px;
+    padding: 8px 16px;
+    border: 1px solid var(--bordure);
+    font-size: 13px;
+    text-transform: uppercase;
+    transition: background 0.2s;  /* animation douce au survol */
+}
+
+.bouton:hover {
+    background: var(--texte);
+    color: var(--fond);
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   8. PIED DE PAGE
+   ========================================================= */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    color: var(--texte-doux);
+    font-size: 13px;
+}
+
+footer ul {
+    display: flex;
+    gap: 16px;
+}
+
+footer a {
+    color: var(--texte-doux);
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   9. RESPONSIVE (mobile)
+   Ce bloc ne s'applique que si l'écran fait 600px ou moins.
+   On passe la grille sur 1 seule colonne.
+   ========================================================= */
+@media (max-width: 600px) {
+    .ligne {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .liste li {
+        flex-wrap: wrap;      /* autorise le retour à la ligne */
+    }
+
+    footer {
+        flex-direction: column;  /* empile au lieu d'aligner */
+        gap: 12px;
+    }
+}
